@@ -14,3 +14,9 @@ resource "aws_subnet" "main" {
     Name = var.subnet_name
   }
 }
+
+resource "aws_subnet" "example" {
+  vpc_id            = data.aws_vpc.selected.id
+  availability_zone = "us-east-1a"
+  cidr_block        = var.default_vpc_subnet_CICR
+}
